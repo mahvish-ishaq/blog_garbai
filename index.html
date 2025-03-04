@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GARBAI - AI for a Cleaner Tomorrow</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #f0f0f0;
+            background-image: url("bg5.jpg"); /* Background image */
+            background-size: cover; /* Cover the entire viewport */
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        /* Container styling */
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: rgba(77, 77, 77, 0.6); /* 70% opacity *//* Semi-transparent green */ /* Semi-transparent grey background for readability */
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Header styling */
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header img {
+            width: 80px;
+            height: auto;
+        }
+
+        h1 {
+            color: white;
+            margin-top: 10px;
+            font-size: 2.2em;
+        }
+		h2 {
+		    color: black;
+		}
+
+        /* Section styling */
+        .section {
+            margin: 20px 0;
+            padding: 20px;
+            background-color:lightgrey;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            color: #333;
+            transition: transform 0.2s;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+		
+
+        /* Section headers */
+        .section h2 {
+            margin-top: 0;
+            color: blue;
+            font-size: 1.8em;
+        }
+		/* Block Diagram Section styling */
+        .block-diagram {
+            margin-top: 40px;
+			color: white;
+        }
+
+
+        .block-diagram img {
+            width: 100%;
+            height: 10%;
+            border: 2px solid green;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Button styling */
+        .read-more {
+            display: inline-block;
+            padding: 10px 15px;
+            margin-top: 10px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .read-more:hover {
+            background-color: #0056b3;
+        }
+
+        /* List styling */
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+		
+		 /* Methods Section styling */
+        .methods {
+            margin-top: 40px;
+            text-align: left;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .methods h2 {
+            color: white;
+            font-size: 2em;
+        }
+
+        .methods ul {
+            list-style-type: none;
+            padding-left: 0;
+			
+        }
+
+        .methods li {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+			
+        }
+		.methods h3 {
+            color: blue;
+            font-size: 1.2em;
+        }
+
+
+        .methods strong {
+            color: lightblue;
+        }
+		/* Slideshow Section styling */
+        .slideshow-container {
+            position: relative;
+            max-width: 80%;
+            margin: 40px auto;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .slides {
+            display: none;
+            width: 100%;
+        }
+
+        /* Caption text */
+        .caption {
+            color: #ffffff;
+            font-size: 1.2em;
+            position: absolute;
+            bottom: 8px;
+            left: 16px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Navigation buttons */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev {
+            left: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+
+
+        /* Contact Section styling */
+        .contact-details {
+            text-align: left side;
+            margin-top: 40px;
+        }
+
+        .contact-details p {
+            margin: 10px 0;
+            font-size: 1.1em;
+			color:white;
+        }
+
+        .contact-details i {
+            margin-right: 8px;
+            font-size: 1.3em;
+        }
+
+        /* Query form styling */
+        .query-form {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: lightgrey;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            color: #333;
+        }
+
+        .query-form h3 {
+            color: #005b96;
+        }
+
+        .query-form label {
+            display: block;
+            margin-top: 10px;
+            color: #333;
+        }
+
+        .query-form input, .query-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: none;
+        }
+
+        .query-form button {
+            display: inline-block;
+            padding: 10px 15px;
+            margin-top: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .query-form button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Responsive styling */
+        @media (max-width: 600px) {
+            .container {
+                width: 95%;
+            }
+        }
+		
+		  /* Footer Section */
+        .footer {
+            margin-top: 40px;
+            padding: 10px;
+            font-size: 1em;
+            color: #ffffff;
+            background-color: rgba(0, 0, 0, 0.7);
+            text-align: center;
+        }
+      
+    </style>
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <!-- Logo Image -->
+            <img src="GARBAI LOGO.png" alt="GARBAI Logo">
+            <h1>GARBAI - AI FOR A CLEANER TOMORROW</h1>
+            <h2>Sorting the Waste , Sustaining the Planet!</h2>			
+        </div>
+
+        <!-- Abstract Section -->
+        <div class="section">
+            <h2>Introduction</h2>
+            <p> For our Major Project, we are working on GARBAI an AI-driven garbage classification system designed to revolutionize waste management by enabling accurate and efficient waste segregation. Improper waste disposal leads to environmental pollution, inefficient recycling, and increased landfill waste. GARBAI addresses these challenges by utilizing advanced artificial intelligence and machine learning algorithms to automatically classify waste into categories such as biodegradable, recyclable, hazardous, and non-recyclable. The system can be integrated into municipal waste collection systems, recycling plants, and commercial establishments to streamline waste sorting, reduce human error, and promote sustainability. By enhancing waste segregation at the source, GARBAI contributes to a cleaner environment, supports recycling efforts, and aids municipalities and organizations in achieving their waste management goals. With its user-friendly interface and real-time classification capabilities, GARBAI is a smart and scalable solution for individuals, businesses, and local governments looking to improve waste management efficiency and contribute to a greener future.  </p>
+        </div>
+
+        <!-- Objectives Section -->
+        <div class="section">
+            <h2>Our Services</h2>
+            <ul>
+			    <p>GARBAI offers:</p>
+                <li><strong>Scalability:</strong> Designed for use across municipalities, businesses, and households, making waste segregation accessible at all levels.</li>
+                <li><strong>Multi-Category Classification:</strong> Accurately identifies various types of waste, improving recycling rates and reducing landfill waste.</li>
+                <li><strong>Real-Time Processing:</strong> Uses advanced AI models to instantly classify waste, minimizing manual sorting efforts.</li>
+                <li><strong>Cost-Effective & User-Friendly:</strong> Designed for easy integration with waste collection systems without requiring high-cost infrastructure.</li>
+				<li><strong>Higher Accuracy with AI:</strong> Most waste sorting systems use simple methods, leading to errors. Our project leverages advanced AI models like CNNs to accurately recognize and classify different waste materials. This improves sorting precision and reduces contamination in recycling.​</li>
+				<p>With real-time AI-powered waste identification, GARBAI promotes sustainability, reduces human effort, and enhances waste management efficiency, making it a game-changer in environmental conservation. </p>
+            </ul>
+        </div>
+
+        
+
+        <!-- Existing Methods Section -->
+        <div class="section">
+            <h2>Existing Methods</h2>
+            <p>To make GARBAI different from all existing waste classification solutions, we analyzed highly reputed AI-based waste management applications like DeepWaste, Winnow, and Recycleye, which take waste from the automated recognition and sorting process or end with it. However, these were little or less than 'what sets GARBAI apart.'  </p>
+            <ul>
+                <li><strong>DeepWaste:</strong> A mobile application primarily developed using AI algorithms for recycling waste items only by knowing about whether that item will be recyclable or non-recyclable. However, it is mainly targeted at individuals only thereby not sufficiently implemented at any level for municipalities or businesses. </li>
+                <li><strong>Winnow:</strong> An AI-based food waste management system, tailor-made for the hospitality industry. As expected of such a system, it would, however, focus on how to reduce food waste in restaurants and hotels rather than offering an end-to-end garbage classification system on different types of wastes. </li>
+			    <li><strong>Recycleye:</strong> This is an AI-powered vision system to offer a facility in automating sorting waste at recycling plants. Still, it is for industrial waste management only, demanding high-cost infrastructure, thus not available for municipalities and small organizations. </li>
+            </ul>
+        </div>
+		<div class="block-diagram">
+            <h2>Design Architecture</h2>
+            <p>Below is the Diagram illustrating the architecture (working) of the AI-Driven Garbage Classification for Sustainable Waste Management:</p>
+			<img src="GARBAI WORKING DIAGRAM.png" alt="ER Diagram">
+        </div>
+
+        <!-- Proposed Methods Section -->
+        <div class="section">
+            <h2>Solution to the Existing Challenges</h2>
+            <p>GARBAI – Revolutionizing Garbage Management with AI powered classification. This revolutionary concept marks a beginning for waste managers belonging to new-age. GARBAI is an innovative AI-based garbage classification system intended to improve the efficiency of waste separation at household, municipal, and industrial levels. It is capable of detecting, identifying, and sorting wastes into different categories such as biodegradable, recyclable, hazardous, and non-recyclable using machine learning and computer vision. It includes continuous learning through AI to adapt to new materials and standards. By real-time AI-powered garbage identification, GARBAI will promote sustainability, reduce human efforts, and improve waste management. </p>
+            <p>Harnessing the power of AI, GARBAI is transforming waste management with intelligent garbage classification. Designed for municipalities and organizations, our solution optimizes waste sorting, enhances recycling efficiency, and reduces landfill impact. With GARBAI, we take a step toward a more sustainable and eco-friendly future—because a cleaner tomorrow starts today. </p>
+		</div>
+		 <!-- Methods Section -->
+    <div class="methods">
+        <h2>Modules</h2>
+        
+    <p>
+        Our Methodology integrates Web Development tools to optimize AI – Driven Garbage Classification for Sustainable Waste Management for Household use. The project focuses on identifying and labeling various trash items in images using methods like the ResNet-50 neural network. Our study utilized around 2,467 images that depicted six different types of waste. The use of deep learning techniques thereby equips the proposed system with the capability to effectively address garbage classification issues on the target database. The dataset used in this study consisted of 2467 images of six classes of wastes. The employment of deep learning methods thus empowers the proposed system to successfully tackle garbage classification problems on the target database. Findings of this study shall eventually assist in the construction of an automated garbage classification system that could work to better accounting efficiency for recycling purposes. We're developing a system that uses machine learning to automatically sort garbage, which will enhance recycling and waste management.   
+    </p>
+    <p>
+        Our first step is to collect and prepare data by using a dataset containing around 2,467 images. These images represent six categories of waste: plastic, metal, paper, glass, cardboard, and trash types. The data is split into two sections: 70% for training and 30% for testing. Training is used to teach the model, and testing checks if the model performs well on new data, it hasn't encountered before. These categories are trained and tested using the RESNET-50 convolutional neural network model, which is well-known for its ability to extract detailed features from data. We use PyTorch to train ResNet- 50 model for better image classification while ensuring maximum accuracy through proper data augmentation techniques. Additionally, optimization is done with AdamW optimization, categorical cross-entropy loss, and batch normalization to ensure stability and effective learning. Learning rate scheduling is also put in place to fine-tune performance and guarantee effective convergence. The trained model would also be evaluated against several performance metrics to ascertain its efficacy in garbage classification. Accuracy is calculated as the measure of the percentage of correctly classified images, providing a general overview of the performance of the model. After the training is completed, the model is saved as resnet50_garbage_model.pth, which we will use in our Backend development. Using Flask API the frontend (index.html, classify.html, stats.html, learn.html, ourteam.html) and the backend (python) are connected. It combinedly gives our web application which consists of Classify where the waste can be uploaded from the dataset. After uploading the waste image, the category will be predicted and it will display whether the waste is recyclable or it should be sent to landfill for disposal. 
+    </p>
+    <p>
+        Our Methodology reduces the manual labor and the inefficiencies due to manual error and the congested landfills where all the waste either plastic, glass, paper, etc. are deposited due to irresponsible behavior of man. Now using GARBAI it helps man in identifying which waste category is to be sent to landfill and which should be recycled, ensuring a greener and cleaner Tomorrow. 
+    </p>
+    <h3>Overview of Technology:</h3>
+    <ul>
+        <li><strong>Modern, Responsive Design:</strong> Achieved with CSS for visually appealing layouts and FLASK API for user-friendly interfaces.</li>
+		<li><strong>AI-Driven Waste Prediction:</strong>Achieved using CNN and Deep Learning Model, RESNET50 for great feature extraction</li>
+        <li><strong>Impact Statistics:</strong> Includes statistics data achieved using python and JS.</li>
+        <li><strong>Classify Interface:</strong> Provides AI-powered waste classification implemented using Python and JS.</li>
+        <li><strong>Learn Interface:</strong> Education tips including waste segregation importance and its impact on the planet.</li>
+        <li><strong>Team Section:</strong> Showcases our team and advisors.</li>
+        <li><strong>Responsive Navigation:</strong> Implemented using PyTorch, Flask and JavaScript for smooth user experience.</li>
+    </ul>
+    <h3>GARBAI Website Includes:</h3>
+    <ul>
+        <li>-Home Page describing the need to use GARBAI.</li>
+        <li>-Classify interface which is integrated using Backend, where waste images can be uploaded and classified into various categories.</li>
+        <li>-Impact Statistics which update users with the difference, we can make using GARBAI for Efficient Garbage disposal.</li>
+        <li>-Providing Education to the users about Effective Waste management Tips.</li>
+        <li>-Responsive navigation and layout for enhanced usability.</li>
+    </ul>
+    </div>
+	
+	
+	<!-- Result Interfaces Section -->
+		
+    <div class="slideshow-container">
+	 <h2>Result Interfaces</h2>
+        <div class="slides">
+            <img src="homepage.png" style="width:100%">
+           
+        </div>
+        <div class="slides">
+            <img src="classifypage.png" style="width:100%">
+         
+        </div>
+        <div class="slides">
+            <img src="statspage.png" style="width:100%">
+          
+        </div>
+		<div class="slides">
+            <img src="learnpage.png" style="width:100%">
+ 
+        </div>
+		<div class="slides">
+            <img src="ourteampage.png" style="width:100%">
+          
+        </div>
+        
+        <!-- Navigation buttons -->
+        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+        <a class="next" onclick="changeSlide(1)">&#10095;</a>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function changeSlide(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("slides");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 5000); // Change image every 5 seconds
+        }
+    </script>  
+	    <!-- Conclusion Section -->
+		<div class="section">
+       
+          <h2>Our Reflections</h2>
+          <p>GARBAI-AI for a Cleaner Tomorrow aims to address the challenges in waste segregation and foster sustainable waste management practices. By utilizing machine learning and computer vision, GARBAI improves the accuracy, efficiency, and automation of sorting biodegradable, recyclable, hazardous, and non-recyclable waste. In contrast to conventional methods that depend on manual sorting or expensive infrastructure, GARBAI provides a cost-effective, scalable, and flexible solution that is ideal for municipalities, waste management companies, businesses, and households.</p>
+          <p>As it continuously evolves through user feedback,its ability to classify waste in real-time and learn continuously positions it as a transformative tool for enhancing recycling rates, minimizing landfill waste, and supporting global sustainability efforts.</p>
+          <p>Our team is dedicated to revolutionizing waste management through AI-powered garbage classification. With a passion for sustainability and technology, we aim to help municipalities and organizations optimize waste sorting, reduce landfill waste, and promote recycling efficiency. By combining innovation with real-world impact, GARBAI is set to transform the way waste is managed for a greener future.</p>
+		</div>
+		
+		<!-- Contact Details Section -->
+		<div class="contact-details">
+            <h2>Contact Us</h2>
+            <p><i>📍 </i>SR UNIVERSITY, Ananthasagar, Telangana, India, 506001</p>
+            <p><i>📧 </i><a href="mailto:2103a51473@sru.edu.in">2103a51473@sru.edu.in</a></p>
+            <p><i>📞 </i>+91 70321 25036</p>
+	     <p><br>
+                For Further Details, Contact our Guide: Dr.Sasanko Sekhar Gantayat <br>
+                (Associate Professor, SR University)<br>
+                <i>📞 </i>+91 89857 57724
+            </p>
+        </div>
+
+
+        <!-- Query Form Section -->
+        <div class="query-form">
+            <h3>For any Queries</h3>
+            <form action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="query">Type Your Query Here:</label>
+                <textarea id="query" name="query" rows="4" required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+	
+	<!-- Footer Section with Copyright Notice -->
+    <div class="footer">
+        <p>&#169; 2025 All Rights Reserved</p>
+    </div>
+
+</body>
+</html>
